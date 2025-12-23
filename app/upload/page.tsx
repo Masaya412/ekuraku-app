@@ -73,9 +73,10 @@ export default function UploadPage() {
   };
 
   // 画像と色の削除
-  const handleDeleteImage = () => {
+  const remove = () => {
     setColors([]);
     setPreviewURL(null);
+    sessionStorage.removeItem(HISTRY_KEY);
     setUploadedOnce(false); // 削除したらドロップゾーンを再表示
   };
 
@@ -126,7 +127,7 @@ export default function UploadPage() {
         </HStack>
         <HStack justify="center" spacing={4}>
           <Button
-            onClick={handleDeleteImage}
+            onClick={remove}
             isDisabled={!previewURL && colors.length === 0}
             variant="outline"
             colorScheme="red"

@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 概要
+主要色抽出アプリ 「えくらく」
 
-## Getting Started
+えくらくは、色を抽出する extract から着想を得て名付けました。
+親しみやすさを意識し、ひらがな表記としています。
 
-First, run the development server:
+本アプリは、スタートページ・アップロードページ・リストページの3つで構成されています。
+画像をアップロードすると、その画像内で使用されている色のうち、使用頻度の高い色から最大3色までを抽出します。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 背景・動機
+大学の授業において、PythonとフレームワークのFlask、HTML/CSSを使ったwebアプリケーションを開発しました。
+そのため、このことを生かしてより新しい技術であるTypescript・Reactを理解したいと考えました。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+また、大学の授業でコンテンツの動画から色を抽出する技術を用いて研究を行ったことがあり、その際にその技術を実際のアプリケーションとして使えるようにすると便利なのではないかと考えたため、このようなアプリケーションを制作するに至りました。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 使用技術
+・言語：Typescript・Javascript
+→ Typescript並びにJavascriptの学習のため
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+・フレームワーク：React・Next.js
+→ Reactのコンポーネントで考えるシステム設計について理解するため
+→ Next.jsは最新のフレームワークに触れてみたいと考えたため
 
-## Learn More
+・UIライブラリ：Chakra UI
+→ デザインをコンポーネントとして管理することができ、CSSを直接記述せずにスタイルを指定できることから、可読性が高く実装の負担を軽減できるのではないかと考えたため
 
-To learn more about Next.js, take a look at the following resources:
+## 工夫した点
+・全体的に親しみやすさを重視
+- 背景は淡い色でカラフルにすることで「色を抽出する」という用途に合った色合いに
+- 文字やボタンの基本の色は青色や緑色をメインにすることで、主張が強くなりすぎないように
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+・削除は視認性を上げる
+- 削除ボタンは赤色、全削除ボタンは黄色にすることでほかの部分に比べて目立つように（間違えて消してしまわないようにするため）
+- 全削除を黄色のボタンにし、中の文字を黒色にすることで危険なことをイメージしやすいように
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+・ハンバーガーメニュー（ドロアー）の作成
+- このボタンを隠しておくことで基本は画面全体を使えるように
+- ページの流れに沿ってボタンを押すのではなく、特定のページに飛びたいときに使えるように
 
-## Deploy on Vercel
+・プログラムについて
+- １つのファイルで多くの機能を入れすぎないように意識（Menuでアップロードするための機能を入れないようにするなど）
+- システムが複雑になりそうなときはプログラムを分ける（ColorCheifの機能は別のプログラムにするなど）
+- localStorageで今まで保存していたのだが、アプリを閉じたときに保存していた画像が消えたほうがいいと考え、sessionStorageに切り替えた
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 苦労した点・学んだこと
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Next.js、Typescriptの考え方の難しさ
+- 興味本位でNext.jsを使ってみたものの、考え方が全く分からなかったことから、Node.jsを用いて一度アプリケーションを作成しながら学ぶことで、Next.jsの考え方を理解することができました。
+
+- 新しいNext.jsのほうが優れていると思っていたのですが、Node.jsにもNext.jsにもそれぞれ良さがあり、用途に応じて使い分けることが大切だと学ぶことができました。
+
+- Typescriptも考え方が全く分からなかったので、まずはJavascriptを学習してからTypescriptの考え方を理解することに努めました（特にJavascript独自の関数の理解が大変でした）。
+
+## Reactの利便性
+- HTML/CSSを使ってプログラムを分けて書いていた時と違って、1つのコンポーネントという形でUIをまとめられることがとても便利だと感じました。
+
+- UIの記述とあわせてJavaScriptの処理を記述できるため、見た目と振る舞いを一つのコンポーネントとしてまとめて管理しやすいと感じました。
+
+- アプリケーションとして形にする前の段階で、UI全体を一度に考えるのではなく、部分ごとに分けて検討することで、各機能の役割を整理しながら設計することができました。
