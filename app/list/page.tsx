@@ -36,6 +36,9 @@ function saveHistory(item: HistoryItem[]) {
 }
 
 export default function ListPage() {
+  // デプロイ用（最後のButtonのルーティングに使用）
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  
   const [history, setHistory] = useState<HistoryItem[]>([]);
 
   // 初回読み込み（これがないとずっと空のままになってしまう）
@@ -125,7 +128,7 @@ export default function ListPage() {
         )}
         <Box h="20px" />
         
-        <Button as={NextLink} href="/upload" colorScheme="green">
+        <Button as={NextLink} href={`${basePath}/upload`} colorScheme="green">
           アップロードページに戻る
         </Button>
       </VStack>
