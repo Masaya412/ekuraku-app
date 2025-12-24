@@ -44,9 +44,6 @@ export default function UploadPage() {
   const [previewURL, setPreviewURL] = useState<string | null>(null);
   const [uploadedOnce, setUploadedOnce] = useState(false);
 
-  // デプロイ用（最後のButtonのルーティングに使用）
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
   const onFile = async (file: File) => {
     // 画像のプレビュー表示
     const url = URL.createObjectURL(file);
@@ -137,7 +134,7 @@ export default function UploadPage() {
           >
             画像を削除
           </Button>
-          <Button as={NextLink} href={`${basePath}/list`} colorScheme="green">
+          <Button as={NextLink} href="/list" colorScheme="green">
             リストページへ
           </Button>
         </HStack>
