@@ -1,11 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: "export",          // 静的書き出し
-  basePath: "/ekuraku",      // GitHub Pages は /repo名/ 配下になる
-  assetPrefix: "/ekuraku/",  // 静的アセットのパス
-  images: {
-    unoptimized: true,       // next/image を使っているなら必須に近い
+const isProd = process.env.NODE_ENV === "production";
+const repo = "ekuraku-app";
+const basePath = isProd ? `/${repo}` : "";
+
+module.exports = {
+  output: "export",
+  basePath,
+  images: { unoptimized: true },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 };
-
-module.exports = nextConfig;

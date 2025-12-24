@@ -1,6 +1,7 @@
 "use client";
 
 import { Box, Button, VStack, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 export default function StartPage() {
   return (
@@ -11,6 +12,8 @@ export default function StartPage() {
             主要色抽出アプリ えくらく
           </Text>
           <Button
+            as={NextLink}
+            href="/upload"
             borderRadius={"full"}
             color={"white"}
             background={"deepskyblue"}
@@ -18,9 +21,6 @@ export default function StartPage() {
             height={"50px"}
             fontSize={"25px"}
             _hover={{ background: "skyblue" }}
-            onClick={() => {
-              window.location.href = "/upload";
-            }}
           >
             クリック
           </Button>

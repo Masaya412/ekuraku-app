@@ -12,6 +12,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // デプロイ用（background.jpgの適用のために使用）
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  
   return (
     <html lang="ja">
       <body>
@@ -22,7 +25,8 @@ export default function RootLayout({
               backgroundPosition: "center",
               backgroundImage: `
               linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-              url('/background.jpg')`,
+              url('${basePath}/background.jpg')
+              `,
             }}
           >
             <Menu />
