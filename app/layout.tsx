@@ -12,6 +12,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // デプロイ用（background.jpgの適用のために使用）
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   
   return (
