@@ -1,7 +1,7 @@
 "use client";
 
 import { Box, Button, VStack, Text } from "@chakra-ui/react";
-import { NextLink } from "next/link";
+import NextLink from "next/link";
 
 export default function StartPage() {
   return (
